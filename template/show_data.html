@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap Table</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <hr>
+        <h2>Student Information &nbsp; <a href="http://localhost:8000/emp">Add Details</a></h2>
+    <!-- <h2>hello</h2>     -->
+    <!-- </hr> -->
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Class</th>
+                    <th scope="col">Age</th>
+                    <th scope="col">Roll Number</th>
+                    <th scope="col">Phone Number</th>
+                    <th scope="col">Delete/Update</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Add your data rows here -->
+                {%for students in data%}
+                <tr>
+                    <td>{{students.id}}</td>
+                    <td>{{students.name}}</td>
+                    <td>{{students.classes}}</td>
+                    <td>{{students.age}}</td>
+                    <td>{{students.roll_number}} </td>
+                    <td>{{students.phone_number}}</td>
+                    <td>
+                    <a href="/emp/delete_data/{{students.id}}">Delete</a>     
+                    <a href="/emp/update_data/{{students.id}}">&nbsp; Update</a>
+                </td>
+                </tr>
+                {%endfor%}
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Bootstrap JS (Optional, for certain Bootstrap features like dropdowns, modals, etc.) -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
